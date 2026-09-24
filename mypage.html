@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 
 <head>
@@ -7,69 +8,164 @@
 
     <title>YONA's World</title>
 
+    <script>
+function sakura() {
+    for (let i = 0; i < 20; i++) {
+        let flower = document.createElement("div");
+
+        flower.innerHTML = "🌸";
+        flower.className = "sakura";
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.fontSize = Math.random() * 20 + 15 + "px";
+        flower.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+        document.body.appendChild(flower);
+
+        setTimeout(function() {
+            flower.remove();
+        }, 6000);
+    }
+}
+</script>
     <style>
         body {
-            background-color: #fff0f6;
-            font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
-            padding: 60px;
+            font-family: Arial, sans-serif;
+            background: #fff7fb;
+            color: #555;
         }
 
-        h1 {
+        header {
+            background: #ffd6e8;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
             color: #d63384;
             font-size: 50px;
+            margin: 10px;
         }
 
-        p {
-            color: #555;
+        header p {
             font-size: 20px;
         }
 
-        .card {
-            background-color: white;
-            max-width: 600px;
-            margin: 40px auto;
+        .photo {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .about {
+            max-width: 800px;
+            margin: 50px auto;
             padding: 40px;
+            background: white;
             border-radius: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .about h2 {
+            color: #d63384;
+            font-size: 32px;
+        }
+
+        .things {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .thing {
+            background: #fff0f6;
+            padding: 25px;
+            border-radius: 20px;
+            width: 180px;
+            font-size: 18px;
         }
 
         button {
-            background-color: #d63384;
+            margin-top: 25px;
+            background: #d63384;
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 20px;
+            padding: 14px 30px;
+            border-radius: 30px;
             font-size: 18px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #a61e5c;
+            background: #a61e5c;
         }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
+        .sakura {
+    position: fixed;
+    top: -40px;
+    pointer-events: none;
+    z-index: 9999;
+    animation-name: sakuraFall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sakuraFall {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
     </style>
+
 </head>
 
 <body>
 
-    <div class="card">
-
+    <header>
+        <img src="photo.jpg" alt="YONA的照片" class="photo">
         <h1>🌸 YONA's World 🌸</h1>
+        <p>Welcome to my little website!</p>
+<button onclick="showMessage()">點我看看 ✨</button>
+<p id="message"></p>
+<script>
+function showMessage() {
+    document.getElementById("message").innerHTML = "🌸 嗨！歡迎來到 YONA 的小世界！ 💗";
+}
+</script>
+<button onclick="sakura()">🌸 櫻花飄落</button>
+    </header>
 
-        <p>こんにちは！</p>
+    <section class="about">
+        <h2>About Me</h2>
+        <p> 我是 YONA！ </p>
+        <p> ♡ </p>
+        <div class="things">
+            <div class="thing"> 🎨<br> 畫畫 </div>
+            <div class="thing">🌷<br>出去玩</div>
+            <div class="thing">💻<br>網站
+            </div>
+        </div>
+    </section>
 
-        <p>歡迎來到我的網站！</p>
 
-        <p>🎨 我喜歡畫畫</p>
-        <p>🌷 我喜歡出去玩</p>
-        <p>✨ 這是我的第一個作品網站</p>
-
-        <button onclick="alert('歡迎來到 YONA 的網站！')">
-            點我！
-        </button>
-
-    </div>
+    <footer>
+        © 2026 YONA's World
+    </footer>
 
 </body>
 
